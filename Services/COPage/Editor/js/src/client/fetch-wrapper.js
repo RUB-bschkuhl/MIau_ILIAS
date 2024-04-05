@@ -67,11 +67,12 @@ export default {
 
     let fetch_url = new URL(url);
     let url_params = new URLSearchParams(fetch_url.search.slice(1));
+    
     for (const [key, value] of Object.entries(params)) {
       url_params.append(key, value)
     }
     fetch_url.search = url_params;
-
+    console.log("fetch_url: ", fetch_url)
     return fetch(fetch_url.href, {
       method: 'GET',
       mode: 'same-origin',
